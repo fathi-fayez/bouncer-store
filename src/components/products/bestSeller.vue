@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
-            <img src="../assets/images/50061505_575246.png" alt="product.id" />
+            <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
             <h4>name</h4>
             <div class="rating">
@@ -18,7 +18,7 @@
         </div>
         <div class="col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
-            <img src="../assets/images/50061505_575246.png" alt="product.id" />
+            <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
             <h4>name</h4>
             <div class="rating">
@@ -31,7 +31,7 @@
         </div>
         <div class="col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
-            <img src="../assets/images/50061505_575246.png" alt="product.id" />
+            <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
             <h4>name</h4>
             <div class="rating">
@@ -44,7 +44,7 @@
         </div>
         <div class="col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
-            <img src="../assets/images/50061505_575246.png" alt="product.id" />
+            <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
             <h4>name</h4>
             <div class="rating">
@@ -57,7 +57,7 @@
         </div>
         <div class="col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
-            <img src="../assets/images/50061505_575246.png" alt="product.id" />
+            <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
             <h4>name</h4>
             <div class="rating">
@@ -70,7 +70,7 @@
         </div>
         <div class="col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
-            <img src="../assets/images/50061505_575246.png" alt="product.id" />
+            <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
             <h4>name</h4>
             <div class="rating">
@@ -83,7 +83,7 @@
         </div>
         <div class="col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
-            <img src="../assets/images/50061505_575246.png" alt="product.id" />
+            <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
             <h4>name</h4>
             <div class="rating">
@@ -100,6 +100,6 @@
   </div>
 </template>
 <script setup>
-import navBar from '../components/navBar.vue'
+import navBar from '../navBar.vue'
 </script>
 <style></style>
