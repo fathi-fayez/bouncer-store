@@ -8,6 +8,7 @@
   <whyUsComponent />
   <latestNewsComponent />
   <featuredProducts />
+  <footerComponent />
   <!-- <RouterView /> -->
 </template>
 <script setup>
@@ -21,6 +22,7 @@ import singleBanner from './components/banners/singleBanner.vue'
 import whyUsComponent from './components/whyUsComponent.vue'
 import latestNewsComponent from './components/latestNewsComponent.vue'
 import featuredProducts from './components/products/featuredProducts.vue'
+import footerComponent from './components/footer.vue'
 </script>
 
 <style scoped></style>
