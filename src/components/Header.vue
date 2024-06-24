@@ -46,19 +46,18 @@
               </ul>
             </li>
           </div>
-          <div class="d-flex justify-content-end w-25">
+          <div class="d-flex align-items-center">
             <li class="nav-item me-5">
-              <a class="nav-link active" aria-current="page" href="#">My profile</a>
+              <a class="nav-link active" aria-current="page" href="#"
+                ><i class="fa-regular fa-user"></i> My profile</a
+              >
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Items</a>
+            <li class="nav-item me-5">
+              <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i> Items</a>
             </li>
+            <i class="fa-solid fa-magnifying-glass"></i>
           </div>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>

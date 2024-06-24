@@ -1,5 +1,5 @@
 <template>
-  <!-- <Header> </Header>
+  <Header> </Header>
   <navBar />
   <currentPageStatus />
   <carousel />
@@ -9,24 +9,26 @@
   <whyUsComponent />
   <latestNewsComponent />
   <featuredProducts />
-  <footerComponent /> -->
-  <productDetails />
-  <!-- <RouterView /> -->
+  <footerComponent />
+  <RouterView />
+  <!-- <productDetails /> -->
+  <!-- <cartPage /> -->
 </template>
 <script setup>
-// import { RouterLink, RouterView } from 'vue-router'
-// import Header from './components/Header.vue'
-// import navBar from './components/navBar.vue'
-// import currentPageStatus from './components/currentPageStatus.vue'
-// import carousel from './components/carousel.vue'
-// import bannersContainer from './components/banners/bannersContainer.vue'
-// import bestSeller from './components/products/bestSeller.vue'
-// import singleBanner from './components/banners/singleBanner.vue'
-// import whyUsComponent from './components/whyUsComponent.vue'
-// import latestNewsComponent from './components/latestNewsComponent.vue'
-// import featuredProducts from './components/products/featuredProducts.vue'
-// import footerComponent from './components/footer.vue'
-import productDetails from './components/products/productDetails.vue'
+import { RouterLink, RouterView } from 'vue-router'
+import Header from './components/Header.vue'
+import navBar from './components/navBar.vue'
+import currentPageStatus from './components/currentPageStatus.vue'
+import carousel from './components/carousel.vue'
+import bannersContainer from './components/banners/bannersContainer.vue'
+import bestSeller from './components/products/bestSeller.vue'
+import singleBanner from './components/banners/singleBanner.vue'
+import whyUsComponent from './components/whyUsComponent.vue'
+import latestNewsComponent from './components/latestNewsComponent.vue'
+import featuredProducts from './components/products/featuredProducts.vue'
+import footerComponent from './components/footer.vue'
+// import productDetails from './components/products/productDetails.vue'
+// import cartPage from './components/cartPage.vue'
 </script>
 
 <style scoped></style>
