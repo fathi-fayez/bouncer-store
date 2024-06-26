@@ -36,6 +36,10 @@ p {
   margin-right: 10px;
   letter-spacing: 0.35px;
 
+  @media (max-width: 769px) {
+    font-size: 10px;
+  }
+
   &.home,
   &.accesories {
     color: rgba(51, 160, 255, 1);

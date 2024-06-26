@@ -2,49 +2,51 @@
   <div>
     <h1 class="text-center my-5">FEATURED PRODUCTS</h1>
     <div class="news-container container">
-      <!-- news box -->
-      <div class="news-box">
-        <img src="/src/assets/images/products images/50050995_530579.png" alt="" />
-        <div class="content">
-          <h5>Typesetting industry</h5>
-          <div class="rating">
-            <i class="fa-solid fa-star" style="color: #ffb301"></i>
-            <i class="fa-solid fa-star" style="color: #ffb301"></i>
-            <i class="fa-solid fa-star" style="color: #ffb301"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+      <div class="row">
+        <!-- news box -->
+        <div class="news-box col-sm-6 col-md-4">
+          <img src="/src/assets/images/products images/50050995_530579.png" alt="" />
+          <div class="content">
+            <h5>Typesetting industry</h5>
+            <div class="rating">
+              <i class="fa-solid fa-star" style="color: #ffb301"></i>
+              <i class="fa-solid fa-star" style="color: #ffb301"></i>
+              <i class="fa-solid fa-star" style="color: #ffb301"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <span class="last-price">$499</span> <span class="old-price">$599</span>
           </div>
-          <span class="last-price">$499</span> <span class="old-price">$599</span>
         </div>
-      </div>
-      <!-- news box -->
-      <div class="news-box">
-        <img src="/src/assets/images/products images/c04297141.png" alt="" />
-        <div class="content">
-          <h5>Typesetting industry</h5>
-          <div class="rating">
-            <i class="fa-solid fa-star" style="color: #ffb301"></i>
-            <i class="fa-solid fa-star" style="color: #ffb301"></i>
-            <i class="fa-solid fa-star" style="color: #ffb301"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+        <!-- news box -->
+        <div class="news-box col-sm-6 col-md-4">
+          <img src="/src/assets/images/products images/c04297141.png" alt="" />
+          <div class="content">
+            <h5>Typesetting industry</h5>
+            <div class="rating">
+              <i class="fa-solid fa-star" style="color: #ffb301"></i>
+              <i class="fa-solid fa-star" style="color: #ffb301"></i>
+              <i class="fa-solid fa-star" style="color: #ffb301"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <span class="last-price">$499</span> <span class="old-price">$599</span>
           </div>
-          <span class="last-price">$499</span> <span class="old-price">$599</span>
         </div>
-      </div>
-      <!-- news box -->
-      <div class="news-box">
-        <img src="/src/assets/images/products images/PR-104-0015-002-8A.png" alt="" />
-        <div class="content">
-          <h5>Typesetting industry</h5>
-          <div class="rating">
-            <i class="fa-solid fa-star" style="color: #ffc600"></i>
-            <i class="fa-solid fa-star" style="color: #ffc600"></i>
-            <i class="fa-solid fa-star" style="color: #ffc600"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+        <!-- news box -->
+        <div class="news-box col-sm-6 col-md-4">
+          <img src="/src/assets/images/products images/PR-104-0015-002-8A.png" alt="" />
+          <div class="content">
+            <h5>Typesetting industry</h5>
+            <div class="rating">
+              <i class="fa-solid fa-star" style="color: #ffc600"></i>
+              <i class="fa-solid fa-star" style="color: #ffc600"></i>
+              <i class="fa-solid fa-star" style="color: #ffc600"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <span class="last-price">$499</span> <span class="old-price">$599</span>
           </div>
-          <span class="last-price">$499</span> <span class="old-price">$599</span>
         </div>
       </div>
     </div>
@@ -57,16 +59,12 @@
 <script setup></script>
 <style lang="scss" scoped>
 .news-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   margin-bottom: 150px;
 
   .news-box {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 360px;
 
     img {
       width: 140px;

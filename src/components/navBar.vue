@@ -1,7 +1,7 @@
 <template>
   <div class="navBar container">
     <h1 class="logo">BOUNCER</h1>
-    <ul class="nav-icons">
+    <ul class="nav-icons mx-auto">
       <li>HOME</li>
       <li>STORE</li>
       <li>IPHONE</li>
@@ -14,7 +14,6 @@
 <script setup></script>
 <style lang="scss">
 .navBar {
-  margin: 20px;
   text-align: center;
   .logo {
     margin: 50px;
@@ -22,8 +21,20 @@
   .nav-icons {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     list-style: none;
+    @media (max-width: 769px) {
+      flex-direction: column;
+      li {
+        border: 1px solid #888;
+        padding: 10px 20px;
+        width: 150px;
+      }
+    }
+
+    li {
+      margin: 0 20px;
+    }
   }
 }
 </style>

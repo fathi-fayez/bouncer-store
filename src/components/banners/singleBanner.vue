@@ -11,7 +11,7 @@
   </div>
 </template>
 <script setup></script>
-<style lang="scss">
+<style lang="scss" scoped>
 .banner-container {
   width: 100%;
   height: 600px;
@@ -20,5 +20,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 769px) {
+    img {
+      width: 100%;
+    }
+  }
 }
 </style>

@@ -4,7 +4,7 @@
     <div class="products">
       <div class="row">
         <!-- product card -->
-        <div class="col-lg-3 mt-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
             <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
@@ -24,7 +24,7 @@
           </div>
         </div>
         <!-- product card -->
-        <div class="col-lg-3 mt-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
             <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
@@ -44,7 +44,7 @@
           </div>
         </div>
         <!-- product card -->
-        <div class="col-lg-3 mt-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
             <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
@@ -64,7 +64,7 @@
           </div>
         </div>
         <!-- product card -->
-        <div class="col-lg-3 mt-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
             <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
@@ -84,7 +84,7 @@
           </div>
         </div>
         <!-- product card -->
-        <div class="col-lg-3 mt-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
             <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
@@ -104,7 +104,7 @@
           </div>
         </div>
         <!-- product card -->
-        <div class="col-lg-3 mt-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
             <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
@@ -124,7 +124,7 @@
           </div>
         </div>
         <!-- product card -->
-        <div class="col-lg-3 mt-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
             <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 
@@ -144,7 +144,7 @@
           </div>
         </div>
         <!-- product card -->
-        <div class="col-lg-3 mt-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
           <div class="card border-0 shadow-sm text-center">
             <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
 

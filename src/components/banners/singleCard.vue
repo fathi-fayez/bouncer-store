@@ -13,7 +13,6 @@
 <script setup></script>
 <style lang="scss" scoped>
 .card-container {
-  width: 33.3%;
   height: 300px;
   display: flex;
   align-items: center;

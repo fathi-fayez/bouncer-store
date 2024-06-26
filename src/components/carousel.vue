@@ -57,8 +57,18 @@ const modules = ref([Pagination])
 .slide-content {
   display: flex;
   justify-content: space-around;
-
   height: 100%;
+
+  @media (max-width: 769px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 50px;
+
+    .image {
+      top: 0 !important;
+      width: 200px;
+    }
+  }
 
   .text {
     width: 350px;
@@ -81,9 +91,12 @@ const modules = ref([Pagination])
   .image {
     position: relative;
     top: 160px;
-    // img {
-
-    // }
+    img {
+      max-width: 100%;
+      @media (min-width: 769px) and (max-width: 975px) {
+        height: fit-content;
+      }
+    }
   }
 }
 </style>

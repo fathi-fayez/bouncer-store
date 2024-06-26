@@ -10,7 +10,6 @@
 <script setup></script>
 <style lang="scss" scoped>
 .cardContainer {
-  width: 33.3%;
   height: 300px;
   display: flex;
   flex-direction: column;
