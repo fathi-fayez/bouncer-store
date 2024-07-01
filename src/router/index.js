@@ -14,19 +14,18 @@ const router = createRouter({
       path: '/productDetails/:category/:id',
       name: 'productDetails',
       component: () => import('../components/products/productDetails.vue')
+    },
+    {
+      path: '/productsList/:category',
+      name: 'productsList',
+      component: () => import('../components/products/productsList.vue')
     }
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
   ],
   scrollBehavior(to, from, savedPosition) {
     if (to.name === 'productDetails') {
       return { el: '#product-details', behavior: 'smooth' }
+    } else if (to.name === 'productsList') {
+      return { el: '#products-list', behavior: 'smooth' }
     }
     return savedPosition || { top: 0 }
   }

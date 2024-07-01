@@ -2,25 +2,22 @@
   <div class="navBar container">
     <h1 class="logo">BOUNCER</h1>
     <ul class="nav-icons mx-auto">
-      <li v-for="category in categories" :key="category">{{ category }}</li>
+      <li>
+        <router-link to="/">Home</router-link>
+      </li>
+
+      <li v-for="category in categories" :key="category">
+        <router-link
+          :to="{
+            name: 'productsList',
+            params: { category: category }
+          }"
+          >{{ category }}</router-link
+        >
+      </li>
     </ul>
   </div>
 </template>
-<!-- <script setup>
-import { onMounted, ref } from 'vue'
-
-const categories = ref([])
-
-onMounted(() => {
-  // fetch('https://fakestoreapi.com/products/categories')
-  //   .then((res) => res.json())
-  //   .then((json) => (categories.value = json))
-  // console.log(categories.value)
-  fetch('https://fakestoreapi.com/products/categories')
-    .then((res) => res.json())
-    .then((json) => (categories.value = json))
-})
-</script> -->
 <script setup>
 import { onMounted, ref } from 'vue'
 
@@ -39,6 +36,7 @@ onMounted(async () => {
   }
 })
 </script>
+
 <style lang="scss">
 .navBar {
   text-align: center;
@@ -62,6 +60,10 @@ onMounted(async () => {
     li {
       margin: 0 20px;
       font-weight: bold;
+
+      a {
+        text-decoration: none;
+      }
     }
   }
 }

@@ -1,12 +1,9 @@
 <template>
   <div>
-    <Header> </Header>
-    <navBar />
-    <currentPageStatus />
     <div class="container">
       <div class="row">
         <!-- SideBar -->
-        <div class="sideBar col-4">
+        <div class="sideBar col-3">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur molestiae suscipit
             iure ex officiis sed nemo, dolores saepe quos doloribus exercitationem iste libero rem
@@ -39,7 +36,8 @@
           </p>
         </div>
         <!-- Grid Container -->
-        <div class="grid-container col-8">
+        <div id="products-list" class="grid-container col-9">
+          <!-- Banner -->
           <div class="banner"><singleBanner :height="imageHeight" /></div>
           <!-- Bar -->
           <nav class="navbar navbar-expand-lg navbar-light bg-light my-4">
@@ -102,18 +100,24 @@
           <!-- Products -->
           <div>
             <div class="row">
-              <div class="col-sm-6 col-md-4 mt-3" v-for="product in products" :key="product.id">
-                <singleProduct
-                  :image="product.image"
-                  :title="product.title"
-                  :price="product.price"
-                />
+              <div class="col-sm-6 col-md-4 mt-3" v-for="product in getProducts" :key="product.id">
+                <router-link
+                  :to="{
+                    name: 'productDetails',
+                    params: { id: product.id, category: product.category }
+                  }"
+                >
+                  <singleProduct
+                    :image="product.image"
+                    :title="product.title"
+                    :price="product.price"
+                  />
+                </router-link>
               </div>
             </div>
           </div>
           <!-- Pagination -->
-
-          <nav aria-label="...">
+          <nav class="pagination" aria-label="...">
             <ul class="pagination pagination-lg">
               <li class="page-item active" aria-current="page">
                 <span class="page-link">1</span>
@@ -125,31 +129,51 @@
         </div>
       </div>
     </div>
-    <footerComponent />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import Header from '../../components/Header.vue'
-import navBar from '../../components/navBar.vue'
-import currentPageStatus from '../../components/currentPageStatus.vue'
-import footerComponent from '../../components/footer.vue'
 import singleBanner from '../banners/singleBanner.vue'
 import singleProduct from './singleProduct.vue'
 const imageHeight = ref(400)
+import { ref, onMounted, computed, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const productCategory = ref(route.params.category)
+
 const products = ref([])
-onMounted(async () => {
+
+// Fetch Products
+const fetchProducts = async () => {
   try {
-    const response = await fetch('https://fakestoreapi.com/products?limit=8')
+    const response = await fetch('https://fakestoreapi.com/products')
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
     const data = await response.json()
     products.value = data
   } catch (error) {
-    console.error('Failed to fetch categories:', error)
+    console.error('Failed to fetch product:', error)
   }
+}
+
+// Get All Products on Mount
+onMounted(async () => {
+  await fetchProducts()
+})
+
+// Watch Route Changes
+watch(
+  () => route.params,
+  async (newParams) => {
+    productCategory.value = newParams.category
+  }
+)
+
+// Get The Selected Products
+const getProducts = computed(() => {
+  return products.value.filter((product) => product.category == productCategory.value)
 })
 </script>
 
@@ -158,5 +182,8 @@ onMounted(async () => {
   height: 350px;
   background-color: red;
   border: 2px solid green;
+}
+.pagination {
+  margin: 20px auto;
 }
 </style>
