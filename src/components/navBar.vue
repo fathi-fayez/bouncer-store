@@ -2,16 +2,43 @@
   <div class="navBar container">
     <h1 class="logo">BOUNCER</h1>
     <ul class="nav-icons mx-auto">
-      <li>HOME</li>
-      <li>STORE</li>
-      <li>IPHONE</li>
-      <li>IPAD</li>
-      <li>MACKBOOK</li>
-      <li>ACCESORIES</li>
+      <li v-for="category in categories" :key="category">{{ category }}</li>
     </ul>
   </div>
 </template>
-<script setup></script>
+<!-- <script setup>
+import { onMounted, ref } from 'vue'
+
+const categories = ref([])
+
+onMounted(() => {
+  // fetch('https://fakestoreapi.com/products/categories')
+  //   .then((res) => res.json())
+  //   .then((json) => (categories.value = json))
+  // console.log(categories.value)
+  fetch('https://fakestoreapi.com/products/categories')
+    .then((res) => res.json())
+    .then((json) => (categories.value = json))
+})
+</script> -->
+<script setup>
+import { onMounted, ref } from 'vue'
+
+const categories = ref([])
+
+onMounted(async () => {
+  try {
+    const response = await fetch('https://fakestoreapi.com/products/categories')
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+    const data = await response.json()
+    categories.value = data
+  } catch (error) {
+    console.error('Failed to fetch categories:', error)
+  }
+})
+</script>
 <style lang="scss">
 .navBar {
   text-align: center;
@@ -34,6 +61,7 @@
 
     li {
       margin: 0 20px;
+      font-weight: bold;
     }
   }
 }

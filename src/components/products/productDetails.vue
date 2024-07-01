@@ -1,23 +1,15 @@
 <template>
   <div>
-    <Header> </Header>
-    <navBar />
-    <currentPageStatus />
     <div class="container">
       <div class="row">
         <!-- Product container -->
         <div class="product-container col-9">
-          <div class="row">
+          <div v-if="getProduct" class="row">
             <!-- Images -->
-            <div class="col-5" style="border: 2px solid red">
-              <!-- 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 -->
+            <div class="col-5">
               <div class="row m-4">
                 <div class="col-12 mainImageContainer">
-                  <img
-                    class="main-image rounded d-block mx-auto"
-                    src="../../assets/images/products images/Rectangle 5.jpg"
-                    alt=""
-                  />
+                  <img class="main-image rounded d-block mx-auto" :src="getProduct.image" alt="" />
                 </div>
                 <div class="col-12 mt-4 d-flex flex-row">
                   <img
@@ -39,10 +31,9 @@
                 </div>
               </div>
             </div>
-            <!-- 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 -->
             <!-- Details -->
-            <div class="col-7" style="border: 2px solid red">
-              <h4 class="product-name">Beats Solo2 On Ear Headphones - Black</h4>
+            <div class="col-7">
+              <h4 class="product-name">{{ getProduct.title }}</h4>
               <div class="rating d-flex">
                 <!-- Rating Stars -->
                 <div>
@@ -59,10 +50,13 @@
               <!-- Shipping Details -->
               <div>
                 <div class="price">
-                  <span class="last-price">$499 </span><span class="old-price">$599</span>
+                  <span class="last-price">{{ getProduct.price }} </span
+                  ><span class="old-price">$599</span>
                 </div>
                 <h5>Availability:<span class="ms-5">In stock</span></h5>
-                <h5>Category:<span class="ms-5">Accessories</span></h5>
+                <h5>
+                  Category:<span class="ms-5">{{ getProduct.category }}</span>
+                </h5>
                 <h5>Free shipping</h5>
                 <!-- Color Box -->
                 <div class="d-flex">
@@ -111,7 +105,7 @@
               </div>
             </div>
             <!-- Tabs -->
-            <div class="col-12 mt-5" style="border: 2px solid green">
+            <div class="col-12 mt-5">
               <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                   <button
@@ -174,6 +168,17 @@
                     suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
                     voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
                     dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
+                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
+                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
+                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
+                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
+                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere. Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
+                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
+                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
                     suscipit veniam voluptatem aliquid repellat, quaerat magnam error
                   </p>
                 </div>
@@ -186,6 +191,17 @@
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis
                     culpa suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
+                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
+                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
+                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere. Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
+                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
+                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
+                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
+                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
                     voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
                     dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
                     suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
@@ -214,6 +230,17 @@
                     suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
                     voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
                     dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
+                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
+                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
+                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
+                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
+                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere. Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
+                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
+                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
                     suscipit veniam voluptatem aliquid repellat, quaerat magnam error
                   </p>
                 </div>
@@ -221,46 +248,77 @@
             </div>
           </div>
         </div>
-
-        <div class="col-3" style="border: 2px solid green">
+        <!-- Right Content -->
+        <div class="col-3">
           <h4>BEST SELLER</h4>
-          <!-- Product Card -->
-          <div class="card border-1 py-3 px-3 shadow-sm text-center">
-            <img src="/src/assets/images/50061505_575246.png" alt="product.id" />
-
-            <div class="content">
-              <h5 class="my-5">Typesetting industry</h5>
-              <div class="rating">
-                <i class="fa-solid fa-star" style="color: #ffc600"></i>
-                <i class="fa-solid fa-star" style="color: #ffc600"></i>
-                <i class="fa-solid fa-star" style="color: #ffc600"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <div class="price">
-                <span class="last-price">$499</span> <span class="old-price">$599</span>
-              </div>
-            </div>
-          </div>
-          <!-- Product Image -->
-          <div style="border: 2px solid red">
-            <img src="../../assets/images/banners/banner (3).png" alt="" />
-          </div>
+          <singleProduct
+            v-if="getProduct"
+            :image="getProduct.image"
+            :title="getProduct.title"
+            :price="getProduct.price"
+          />
+          <singleCard />
+        </div>
+        <!-- Related Products -->
+        <h4 class="text-center my-5">RELATED PRODUCTS</h4>
+        <div
+          v-for="product in relatedProducts"
+          :key="product.id"
+          class="col-sm-6 col-md-4 col-lg-3"
+        >
+          <router-link
+            :to="{
+              name: 'productDetails',
+              params: { id: product.id, category: product.category }
+            }"
+          >
+            <singleProduct :image="product.image" :title="product.title" :price="product.price" />
+          </router-link>
         </div>
       </div>
     </div>
-    <relatedProducts />
-    <footerComponent />
   </div>
 </template>
 <script setup>
-import Header from '../../components/Header.vue'
-import navBar from '../../components/navBar.vue'
-import currentPageStatus from '../../components/currentPageStatus.vue'
-import relatedProducts from '../../components/products/relatedProducts.vue'
-import footerComponent from '../../components/footer.vue'
+import { ref, onMounted, computed } from 'vue'
+import { useRoute } from 'vue-router'
+import singleProduct from '../../components/products/singleProduct.vue'
+import singleCard from '../../components/banners/singleCard.vue'
+
+const route = useRoute()
+const productId = route.params.id
+const productCategory = route.params.category
+
+const products = ref([])
+
+// Get All Product
+onMounted(async () => {
+  try {
+    const response = await fetch('https://fakestoreapi.com/products')
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+    const data = await response.json()
+    products.value = data
+  } catch (error) {
+    console.error('Failed to fetch product:', error)
+  }
+})
+
+// Get The Selected Product
+const getProduct = computed(() => {
+  return products.value.find((product) => product.id == productId)
+})
+
+// Get The Related Products
+const relatedProducts = computed(() => {
+  return products.value.filter((product) => product.category == productCategory)
+})
 </script>
 <style lang="scss" scoped>
+.row {
+  margin-bottom: 150px;
+}
 .price {
   margin-top: 15px;
   margin-bottom: 15px;
