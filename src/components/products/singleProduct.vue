@@ -6,7 +6,7 @@
       <img :src="image" alt="product.id" />
     </div>
     <div class="card-body">
-      <h5 class="my-5">{{ title }}</h5>
+      <h5 class="my-3">{{ title }}</h5>
       <div class="rating">
         <i class="fa-solid fa-star" style="color: #ffc600"></i>
         <i class="fa-solid fa-star" style="color: #ffc600"></i>
@@ -28,7 +28,8 @@
 const props = defineProps({
   image: {
     type: String,
-    default: '/src/assets/images/products images/Rectangle 5.jpg'
+    default:
+      'https://st4.depositphotos.com/13324256/24475/i/450/depositphotos_244751462-stock-photo-top-view-product-lettering-made.jpg'
   },
   title: {
     type: String,
@@ -42,7 +43,7 @@ const props = defineProps({
 </script>
 <style lang="scss" scoped>
 .card {
-  height: 500px;
+  height: 400px;
   &:hover .overlay-buttons {
     opacity: 1;
   }
