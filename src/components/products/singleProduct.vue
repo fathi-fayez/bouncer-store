@@ -27,13 +27,16 @@
 <script setup>
 const props = defineProps({
   image: {
-    type: String
+    type: String,
+    default: '/src/assets/images/products images/Rectangle 5.jpg'
   },
   title: {
-    type: String
+    type: String,
+    default: 'Product'
   },
   price: {
-    type: Number
+    type: Number,
+    default: '155 $'
   }
 })
 </script>

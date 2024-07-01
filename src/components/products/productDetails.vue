@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <!-- Product container -->
-        <div class="product-container col-9">
+        <div id="product-details" class="product-container col-9">
           <div v-if="getProduct" class="row">
             <!-- Images -->
             <div class="col-5">
@@ -168,18 +168,6 @@
                     suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
                     voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
                     dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere. Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error
                   </p>
                 </div>
                 <div
@@ -188,30 +176,7 @@
                   role="tabpanel"
                   aria-labelledby="pills-profile-tab"
                 >
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis
-                    culpa suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere. Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere. Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error
-                  </p>
+                  <p>Lorem ipsum dolor sit amet consectetur</p>
                 </div>
                 <div
                   class="tab-pane fade"
@@ -219,30 +184,7 @@
                   role="tabpanel"
                   aria-labelledby="pills-contact-tab"
                 >
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis
-                    culpa suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere. Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere. Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error, animi
-                    voluptatum ipsa deserunt quidem neque ut harum officia vero facere? Lorem ipsum
-                    dolor sit amet consectetur, adipisicing elit. Nesciunt, perspiciatis culpa
-                    suscipit veniam voluptatem aliquid repellat, quaerat magnam error
-                  </p>
+                  <p>Lorem ipsum dolor sit amet consectetur</p>
                 </div>
               </div>
             </div>
@@ -251,12 +193,7 @@
         <!-- Right Content -->
         <div class="col-3">
           <h4>BEST SELLER</h4>
-          <singleProduct
-            v-if="getProduct"
-            :image="getProduct.image"
-            :title="getProduct.title"
-            :price="getProduct.price"
-          />
+          <singleProduct />
           <singleCard />
         </div>
         <!-- Related Products -->
@@ -280,19 +217,19 @@
   </div>
 </template>
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import singleProduct from '../../components/products/singleProduct.vue'
 import singleCard from '../../components/banners/singleCard.vue'
 
 const route = useRoute()
-const productId = route.params.id
-const productCategory = route.params.category
+const productId = ref(route.params.id)
+const productCategory = ref(route.params.category)
 
 const products = ref([])
 
-// Get All Product
-onMounted(async () => {
+// Fetch Products
+const fetchProducts = async () => {
   try {
     const response = await fetch('https://fakestoreapi.com/products')
     if (!response.ok) {
@@ -303,16 +240,30 @@ onMounted(async () => {
   } catch (error) {
     console.error('Failed to fetch product:', error)
   }
+}
+
+// Get All Products on Mount
+onMounted(async () => {
+  await fetchProducts()
 })
+
+// Watch Route Changes
+watch(
+  () => route.params,
+  async (newParams) => {
+    productId.value = newParams.id
+    productCategory.value = newParams.category
+  }
+)
 
 // Get The Selected Product
 const getProduct = computed(() => {
-  return products.value.find((product) => product.id == productId)
+  return products.value.find((product) => product.id == productId.value)
 })
 
 // Get The Related Products
 const relatedProducts = computed(() => {
-  return products.value.filter((product) => product.category == productCategory)
+  return products.value.filter((product) => product.category == productCategory.value)
 })
 </script>
 <style lang="scss" scoped>
