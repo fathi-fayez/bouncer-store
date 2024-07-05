@@ -53,7 +53,19 @@
               >
             </li>
             <li class="nav-item me-5">
-              <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i> Items</a>
+              <router-link
+                :to="{
+                  name: 'cartPage'
+                }"
+                class="nav-link position-relative"
+                href="#"
+              >
+                <span
+                  class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger"
+                >
+                </span>
+                <i class="fa-solid fa-cart-shopping"></i> Items</router-link
+              >
             </li>
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
@@ -64,6 +76,7 @@
 </template>
 
 <script setup></script>
+
 <style scoped>
 .navbar-nav {
   flex-grow: 1;

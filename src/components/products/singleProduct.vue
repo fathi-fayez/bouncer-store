@@ -1,12 +1,12 @@
 <template>
   <!-- product card -->
 
-  <div class="card border-1 shadow-sm text-center">
+  <div :class="{ 'product-list': !isGridView }" class="card border-1 shadow-sm text-center">
     <div class="image-container">
-      <img :src="image" alt="product.id" />
+      <img :src="product.image" alt="product.id" />
     </div>
     <div class="card-body">
-      <h5 class="my-3">{{ title }}</h5>
+      <h5 class="my-3">{{ product.title.split(' ').slice(0, 3).join(' ') }}</h5>
       <div class="rating">
         <i class="fa-solid fa-star" style="color: #ffc600"></i>
         <i class="fa-solid fa-star" style="color: #ffc600"></i>
@@ -15,33 +15,57 @@
         <i class="fa-solid fa-star"></i>
       </div>
       <div class="price">
-        <span class="last-price">${{ price }}</span> <span class="old-price">$599</span>
+        <span class="last-price">${{ product.price }}</span> <span class="old-price">$599</span>
       </div>
     </div>
     <div class="overlay-buttons">
-      <button class="add-to-favorite"><i class="fa-regular fa-heart"></i></button>
-      <button class="add-to-cart"><i class="fa-solid fa-cart-shopping"> </i></button>
+      <button class="add-to-favorite"><i class="fa-solid fa-heart"></i></button>
+      <button class="add-to-cart" @click="addToCart()">
+        <i class="fa-solid fa-cart-shopping"> </i>
+      </button>
     </div>
   </div>
 </template>
 <script setup>
+import { useStore } from 'vuex'
+
+// Access the Vuex store
+const store = useStore()
+
+// Define component props
 const props = defineProps({
-  image: {
-    type: String,
-    default:
-      'https://st4.depositphotos.com/13324256/24475/i/450/depositphotos_244751462-stock-photo-top-view-product-lettering-made.jpg'
+  product: {
+    type: Object,
+    default: {
+      image: '/src/assets/images/31P8qn2ZCFL._AC__1_-removebg-preview.png',
+      title: 'Product',
+      price: 50
+    }
   },
-  title: {
-    type: String,
-    default: 'Product'
-  },
-  price: {
-    type: Number,
-    default: '155 $'
+  isGridView: {
+    type: Boolean,
+    default: true
   }
 })
+
+// Method to add product to the cart
+const addToCart = () => {
+  store.dispatch('addToCart', props.product)
+}
 </script>
+
 <style lang="scss" scoped>
+.product-list {
+  flex-direction: row;
+  height: fit-content !important;
+  padding: 30px;
+  align-items: center;
+  justify-content: center;
+
+  .image-container {
+    flex-basis: 50%;
+  }
+}
 .card {
   height: 400px;
   &:hover .overlay-buttons {
@@ -78,7 +102,7 @@ const props = defineProps({
       margin: 6px;
       color: rgb(51, 160, 255);
       border-color: rgba(151, 151, 151, 0.6);
-      margin-bottom: 200px;
+      margin-bottom: 100px;
     }
   }
   .price {

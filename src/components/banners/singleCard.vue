@@ -18,6 +18,7 @@
   align-items: center;
   background-color: #ff6875;
   position: relative;
+  overflow: hidden;
 
   .content {
     width: 60%;

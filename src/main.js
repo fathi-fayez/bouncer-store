@@ -3,6 +3,7 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 
 // Bootstrap importation
 import 'bootstrap/dist/css/bootstrap.css'
@@ -18,6 +19,6 @@ dom.watch()
 
 const app = createApp(App)
 
-app.use(router).component('font-awesome-icon', FontAwesomeIcon)
+app.use(router).use(store).component('font-awesome-icon', FontAwesomeIcon)
 
 app.mount('#app')

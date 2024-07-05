@@ -31,6 +31,7 @@ const props = defineProps({
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: 0 20px;
 
   @media (max-width: 769px) {
     img {

@@ -22,7 +22,8 @@
     "npm": "^10.8.1",
     "swiper": "^11.1.4",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",

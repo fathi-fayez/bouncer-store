@@ -3,97 +3,108 @@
     <Header> </Header>
     <navBar />
     <currentPageStatus />
-    <!-- Container For Items -->
-    <div class="cart-rewiew mb-4 container">
-      <!-- Header -->
-      <div class="d-flex align-items-center justify-content-around rounded mt-3 px-3 shadow-sm">
-        <h5>FRODUCT</h5>
-        <h5>NAME</h5>
-        <h5>QUNTITY</h5>
-        <h6>PRICE</h6>
-        <h6>UNIT PRICE</h6>
-      </div>
-      <!-- item -->
-      <div
-        class="item-control d-flex align-items-center justify-content-around rounded mt-3 px-3 shadow-sm"
-      >
-        <img
-          src="../assets/images/products images/_0053_rgb_MP582-RGB-bttm_V2.jpg"
-          alt="product.id"
-        />
-        <h6>Philips Hue 7W BR30 Connected Downlight Lamp</h6>
-        <div class="d-flex align-items-center justify-content-around mx-1">
-          <button class="btn btn-outline-secondary">-</button>
-          <h6 class="m-3">5</h6>
-          <button class="btn btn-outline-secondary">+</button>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Container For Items -->
+          <div class="cart-rewiew mb-4">
+            <!-- Header -->
+            <div class="header d-flex align-items-center justify-content-around rounded shadow-sm">
+              <h5>PRODUCT</h5>
+              <h5>NAME</h5>
+              <h5>QUNTITY</h5>
+              <h6>PRICE</h6>
+              <h6>UNIT PRICE</h6>
+            </div>
+            <!-- item -->
+            <div
+              v-for="item in cartItems"
+              :key="item.id"
+              class="item-control d-flex align-items-center justify-content-around rounded mt-3 px-3 shadow-sm"
+            >
+              <img :src="item.image" alt="product.id" />
+              <h6>{{ item.title.split(' ').slice(0, 3).join(' ') }}</h6>
+              <div class="d-flex align-items-center justify-content-around mx-1">
+                <button @click="deleteItem(item)" class="btn btn-outline-secondary">-</button>
+                <h6 class="m-3">{{ item.quantity }}</h6>
+                <button @click="addToCart(item)" class="btn btn-outline-secondary">+</button>
+              </div>
+              <!--********* Search if there is a peter way to calcuaue th price of item *********-->
+              <h6>{{ item.price }}</h6>
+              <h6>{{ item.quantity * item.price }} $</h6>
+            </div>
+          </div>
         </div>
-        <!--********* Search if there is a peter way to calcuaue th price of item *********-->
-        <h6>55 $</h6>
-        <h6>60 $</h6>
-      </div>
-      <!-- item -->
-      <div
-        class="item-control d-flex align-items-center justify-content-around rounded mt-3 px-3 shadow-sm"
-      >
-        <img
-          src="../assets/images/products images/_0053_rgb_MP582-RGB-bttm_V2.jpg"
-          alt="product.id"
-        />
-        <h6>Philips Hue 7W BR30 Connected Downlight Lamp</h6>
-        <div class="d-flex align-items-center justify-content-around mx-1">
-          <button class="btn btn-outline-secondary">-</button>
-          <h6 class="m-3">5</h6>
-          <button class="btn btn-outline-secondary">+</button>
+        <div class="col-md-12">
+          <div class="payment-box">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <!-- Voucher Code Input -->
+                <form class="p-5">
+                  <input type="search" name="search" id="" placeholder="Voucher code" />
+                  <input class="bg-primary" type="submit" value="Search" />
+                </form>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- container of details -->
+                <div class="cart-detail card text-while rounded-0 border-0">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <h5>Cart Details</h5>
+                      <i class="fa-solid fa-cart-shopping"> </i>
+                    </div>
+                    <hr />
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">total</p>
+                      <p class="mb-2">100 $</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Shipping</p>
+                      <p class="mb-2">100 $</p>
+                    </div>
+                    <hr />
+                    <div class="d-flex justify-content-between mb-4">
+                      <p class="mb-2">Subtotal</p>
+                      <p class="mb-2">100 $</p>
+                    </div>
+                    <button class="btn bg-primary mt-2 btn-info btn-block btn-lg">Checkout</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <!--********* Search if there is a peter way to calcuaue th price of item *********-->
-        <h6>55 $</h6>
-        <h6>60 $</h6>
       </div>
     </div>
-    <div class="payment-box d-flex justify-content-around">
-      <!-- Voucher Code Input -->
-      <form class="p-5">
-        <input type="search" name="search" id="" placeholder="Voucher code" />
-        <input class="bg-primary" type="submit" value="Search" />
-      </form>
 
-      <!-- container of details -->
-      <div class="cart-detail card text-while rounded-0 border-0">
-        <div class="card-body">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <h5>Cart Details</h5>
-            <i class="fa-solid fa-cart-shopping"> </i>
-          </div>
-          <hr />
-          <div class="d-flex justify-content-between">
-            <p class="mb-2">total</p>
-            <p class="mb-2">100 $</p>
-          </div>
-          <div class="d-flex justify-content-between">
-            <p class="mb-2">Shipping</p>
-            <p class="mb-2">100 $</p>
-          </div>
-          <hr />
-          <div class="d-flex justify-content-between mb-4">
-            <p class="mb-2">Subtotal</p>
-            <p class="mb-2">100 $</p>
-          </div>
-          <button class="btn bg-primary mt-2 btn-info btn-block btn-lg">Checkout</button>
-        </div>
-      </div>
-    </div>
     <footerComponent />
   </div>
 </template>
 <script setup>
-import Header from '@/components/Header.vue'
-import navBar from '@/components/navBar.vue'
-import currentPageStatus from '@/components/currentPageStatus.vue'
-import footerComponent from '@/components/footer.vue'
+import { useStore } from 'vuex'
+import { computed } from 'vue'
+const store = useStore()
+
+const cartItems = computed(() => {
+  return store.getters.cartItems
+})
+
+const deleteItem = (item) => {
+  store.dispatch('deleteItem', item)
+}
+const addToCart = (item) => {
+  store.dispatch('addToCart', item)
+}
 </script>
+
 <style lang="scss" scoped>
-.cart-detail {
-  width: 400px;
+img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.item-control {
+  background-color: #cbcbcb;
 }
 .payment-box {
   padding-top: 70px;

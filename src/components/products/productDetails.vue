@@ -3,10 +3,10 @@
     <div class="container">
       <div class="row">
         <!-- Product container -->
-        <div id="product-details" class="product-container col-9">
+        <div id="product-details" class="product-container col-sm-12 col-md-9">
           <div v-if="getProduct" class="row">
             <!-- Images -->
-            <div class="col-5">
+            <div class="col-sm-12 col-md-5">
               <div class="row m-4">
                 <div class="col-12 mainImageContainer">
                   <img class="main-image rounded d-block mx-auto" :src="getProduct.image" alt="" />
@@ -32,7 +32,7 @@
               </div>
             </div>
             <!-- Details -->
-            <div class="col-7">
+            <div class="col-sm-12 col-md-7">
               <h4 class="product-name">{{ getProduct.title }}</h4>
               <div class="rating d-flex">
                 <!-- Rating Stars -->
@@ -77,24 +77,30 @@
                     <option value="Large">Large</option>
                   </select>
                 </div>
-                <div class="d-flex">
+                <div class="d-flex justify-content-between">
                   <!-- Quantity Selector -->
                   <div class="d-flex align-items-center">
                     <button class="btn btn-outline-secondary">-</button>
                     <h6 class="m-3">5</h6>
                     <button class="btn btn-outline-secondary">+</button>
                   </div>
-                  <!-- Add To Cart Button -->
-                  <button type="button" class="btn add-to-cart-btn">
-                    <i class="fas fa-shopping-cart"></i> Add to Cart
-                  </button>
-                  <!-- Add To Favorite Button -->
-                  <button type="button" class="btn add-to-favorite">
-                    <i class="fas fa-heart"></i>
-                  </button>
+                  <div class="buttons d-flex">
+                    <!-- Add To Cart Button -->
+                    <button
+                      type="button"
+                      @click="addToCart(getProduct)"
+                      class="btn add-to-cart-btn"
+                    >
+                      <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <!-- Add To Favorite Button -->
+                    <button type="button" class="btn add-to-favorite">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                  </div>
                 </div>
                 <!-- Shares Buttons -->
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between mt-4">
                   <button class="btn facebook-btn">
                     <i class="fa-brands fa-facebook"></i>Share on Facebook
                   </button>
@@ -105,7 +111,7 @@
               </div>
             </div>
             <!-- Tabs -->
-            <div class="col-12 mt-5">
+            <div class="col-12 mt-5 text-center">
               <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                   <button
@@ -191,9 +197,9 @@
           </div>
         </div>
         <!-- Right Content -->
-        <div class="col-3">
+        <div class="col-sm-12 col-md-3">
           <h4>BEST SELLER</h4>
-          <singleProduct />
+          <singleProduct isGridView="falae" />
           <singleCard />
         </div>
         <!-- Related Products -->
@@ -209,7 +215,7 @@
               params: { id: product.id, category: product.category }
             }"
           >
-            <singleProduct :image="product.image" :title="product.title" :price="product.price" />
+            <singleProduct :product="product" />
           </router-link>
         </div>
       </div>
@@ -219,10 +225,12 @@
 <script setup>
 import { ref, onMounted, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import singleProduct from '../../components/products/singleProduct.vue'
+import singleProduct from './singleProduct.vue'
 import singleCard from '../../components/banners/singleCard.vue'
+import { useStore } from 'vuex'
 
 const route = useRoute()
+const store = useStore()
 const productId = ref(route.params.id)
 const productCategory = ref(route.params.category)
 
@@ -265,6 +273,10 @@ const getProduct = computed(() => {
 const relatedProducts = computed(() => {
   return products.value.filter((product) => product.category == productCategory.value)
 })
+
+const addToCart = (product) => {
+  store.dispatch('addToCart', product)
+}
 </script>
 <style lang="scss" scoped>
 .row {
@@ -276,6 +288,7 @@ const relatedProducts = computed(() => {
   font-size: 24px;
   .last-price {
     color: #ff4858;
+    margin-right: 10px;
   }
   .old-price {
     text-decoration: line-through;
@@ -310,7 +323,6 @@ const relatedProducts = computed(() => {
 }
 .add-to-cart-btn {
   margin-right: 20px;
-  margin-left: 150px;
 }
 
 .facebook-btn,
@@ -320,6 +332,7 @@ const relatedProducts = computed(() => {
 }
 .facebook-btn {
   background-color: #0078d7;
+  margin-right: 10px;
 }
 .twitter-btn {
   background-color: #1da1f2;
