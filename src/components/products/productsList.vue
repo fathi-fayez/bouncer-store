@@ -95,12 +95,12 @@
                 </div>
                 <!-- Display Icons -->
                 <div class="icons d-flex">
-                  <li class="nav-item">
+                  <li class="nav-item" :class="{ active: isGridView }">
                     <a class="nav-link" href="#" @click.prevent="isGridView = true"
                       ><i class="fa-solid fa-grip"></i
                     ></a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item" :class="{ active: !isGridView }">
                     <a class="nav-link" href="#" @click.prevent="isGridView = false"
                       ><i class="fa-solid fa-table-list"></i
                     ></a>
@@ -203,6 +203,15 @@ const getLengthOfProducts = computed(() => {
 }
 .pagination {
   margin: 20px auto;
+}
+
+.icons {
+  svg {
+    font-size: 20px;
+  }
+  li.active svg {
+    color: #33a0ff;
+  }
 }
 
 .accesories-card {

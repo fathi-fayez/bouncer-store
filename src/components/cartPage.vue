@@ -10,9 +10,9 @@
           <div class="cart-rewiew mb-4">
             <!-- Header -->
             <div class="header d-flex align-items-center justify-content-around rounded shadow-sm">
-              <h5>PRODUCT</h5>
-              <h5>NAME</h5>
-              <h5>QUNTITY</h5>
+              <h6>PRODUCT</h6>
+              <h6>NAME</h6>
+              <h6>QUNTITY</h6>
               <h6>PRICE</h6>
               <h6>UNIT PRICE</h6>
             </div>
@@ -23,7 +23,7 @@
               class="item-control d-flex align-items-center justify-content-around rounded mt-3 px-3 shadow-sm"
             >
               <img :src="item.image" alt="product.id" />
-              <h6>{{ item.title.split(' ').slice(0, 3).join(' ') }}</h6>
+              <h6 class="title">{{ item.title.split(' ').slice(0, 3).join(' ') }}</h6>
               <div class="d-flex align-items-center justify-content-around mx-1">
                 <button @click="deleteItem(item)" class="btn btn-outline-secondary">-</button>
                 <h6 class="m-3">{{ item.quantity }}</h6>
@@ -109,5 +109,19 @@ img {
 .payment-box {
   padding-top: 70px;
   padding-bottom: 70px;
+}
+@media (max-width: 769px) {
+  .header {
+    display: none !important;
+  }
+  .title {
+    margin: 16px 0 8px;
+  }
+  h6 {
+    font-size: 10px;
+  }
+  .item-control {
+    flex-direction: column;
+  }
 }
 </style>

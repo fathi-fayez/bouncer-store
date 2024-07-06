@@ -203,20 +203,24 @@
           <singleCard />
         </div>
         <!-- Related Products -->
-        <h4 class="text-center my-5">RELATED PRODUCTS</h4>
-        <div
-          v-for="product in relatedProducts"
-          :key="product.id"
-          class="col-sm-6 col-md-4 col-lg-3"
-        >
-          <router-link
-            :to="{
-              name: 'productDetails',
-              params: { id: product.id, category: product.category }
-            }"
-          >
-            <singleProduct :product="product" />
-          </router-link>
+        <div class="col-12">
+          <h4 class="text-center my-5">RELATED PRODUCTS</h4>
+          <div class="row align-items-center">
+            <div
+              v-for="product in relatedProducts"
+              :key="product.id"
+              class="col-sm-6 col-md-4 col-lg-3"
+            >
+              <router-link
+                :to="{
+                  name: 'productDetails',
+                  params: { id: product.id, category: product.category }
+                }"
+              >
+                <singleProduct :product="product" />
+              </router-link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
