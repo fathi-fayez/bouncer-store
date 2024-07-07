@@ -2,7 +2,7 @@
   <div>
     <Header> </Header>
     <navBar />
-    <currentPageStatus v-if="!$route.meta.PageStatus" />
+    <currentPageStatus v-if="!$route.meta.PageStatus && !$route.meta.emptyCart" />
     <RouterView />
     <footerComponent />
   </div>

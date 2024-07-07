@@ -1,9 +1,6 @@
 <template>
   <div>
-    <Header> </Header>
-    <navBar />
-    <currentPageStatus />
-    <div class="container">
+    <div v-if="cartItems.length > 0" class="container">
       <div class="row">
         <div class="col-md-12">
           <!-- Container For Items -->
@@ -76,13 +73,15 @@
         </div>
       </div>
     </div>
-
-    <footerComponent />
+    <div v-else>
+      <emptyCart />
+    </div>
   </div>
 </template>
 <script setup>
 import { useStore } from 'vuex'
 import { computed } from 'vue'
+import emptyCart from '../components/emptyCart.vue'
 const store = useStore()
 
 const cartItems = computed(() => {

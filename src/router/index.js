@@ -23,7 +23,8 @@ const router = createRouter({
     {
       path: '/cartPage',
       name: 'cartPage',
-      component: () => import('../components/cartPage.vue')
+      component: () => import('../components/cartPage.vue'),
+      meta: { emptyCart: true }
     }
   ],
   scrollBehavior(to, from, savedPosition) {
