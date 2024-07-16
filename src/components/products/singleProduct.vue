@@ -38,7 +38,8 @@ const props = defineProps({
     type: Object,
     default() {
       return {
-        image: '/src/assets/images/50061505_575246.png',
+        image:
+          'https://st4.depositphotos.com/13324256/24475/i/450/depositphotos_244751462-stock-photo-top-view-product-lettering-made.jpg',
         title: 'Product',
         price: 50
       }
