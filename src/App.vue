@@ -1,7 +1,6 @@
 <template>
   <div>
     <Header> </Header>
-    <navBar />
     <currentPageStatus v-if="!$route.meta.PageStatus && !$route.meta.emptyCart" />
     <RouterView />
     <footerComponent />
@@ -9,7 +8,7 @@
 </template>
 <script setup>
 import Header from './components/Header.vue'
-import navBar from './components/navBar.vue'
+
 import currentPageStatus from './components/currentPageStatus.vue'
 import footerComponent from './components/footer.vue'
 </script>

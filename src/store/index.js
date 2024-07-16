@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 const store = createStore({
   state: {
     cartItems: [],
-    cartItemsCount: 0
+    cartItemsCount: 0,
+    shippingCost: 50
   },
   mutations: {
     addToCart(state, payload) {

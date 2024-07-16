@@ -124,4 +124,7 @@
   border-top: 1px solid rgb(165, 165, 165);
   border-bottom: 1px solid rgb(165, 165, 165);
 }
+h6 {
+  font-weight: bold;
+}
 </style>

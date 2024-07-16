@@ -10,17 +10,21 @@
   >
     <!-- Slide One -->
     <swiper-slide class="slide-container">
-      <div class="slide-content">
-        <div class="text">
-          <h2>iPhone X</h2>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industry's standard dummy.
-          </p>
-          <a href="">MORE</a>
-        </div>
-        <div class="image">
-          <img src="/src/assets/images/31P8qn2ZCFL._AC__1_-removebg-preview.png" alt="" />
+      <div class="main-product overflow-hidden px-3 py-4 primary">
+        <div
+          class="info-img-product w-100 h-100 container d-flex flex-column flex-md-row align-items-center justify-content-center"
+        >
+          <div class="info-product text-white w-50">
+            <h2 class="product-name mb-4 mt-5 text-nowrap">iPhone X</h2>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+              has been the industry's standard dummy.
+            </p>
+            <a href="">MORE</a>
+          </div>
+          <div class="image-product">
+            <img class="img-fluid" src="/src/assets/images/mobile.1777fab3.png" alt="" />
+          </div>
         </div>
       </div>
     </swiper-slide>
@@ -46,55 +50,36 @@ const modules = ref([Pagination])
 </script>
 <style lang="scss" scoped>
 .slide-container {
+  .main-product {
+    height: 610px;
+  }
   background: linear-gradient(
     219deg,
     rgba(252, 121, 69, 1) 0%,
     rgba(253, 29, 139, 1) 30%,
     rgba(131, 58, 180, 1) 90%
   );
-  padding: 0 150px;
-}
-.slide-content {
-  display: flex;
-  justify-content: space-around;
-  height: 100%;
 
-  @media (max-width: 769px) {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 50px;
+  .info-product {
+    h2 {
+      font-size: 4rem;
+      @media ((max-width: 991px)) {
+        font-size: 30px;
+      }
+    }
 
-    .image {
-      top: 0 !important;
-      width: 200px;
+    @media (max-width: 769px) {
+      text-align: center;
+      width: 100% !important;
+      margin-top: 5rem;
     }
   }
 
-  .text {
-    width: 350px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: start;
-    color: white;
-    a {
-      color: white;
-      width: fit-content;
-      text-decoration: none;
-      border-bottom: 2px solid white;
-    }
-    p {
-      margin: 30px 0;
-    }
-  }
-
-  .image {
-    position: relative;
-    top: 160px;
+  .image-product {
+    transform: translateX(-50px);
     img {
-      max-width: 100%;
-      @media (min-width: 769px) and (max-width: 975px) {
-        height: fit-content;
+      @media (min-width: 769px) {
+        transform: translateY(90px);
       }
     }
   }

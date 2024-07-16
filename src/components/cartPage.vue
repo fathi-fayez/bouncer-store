@@ -53,16 +53,16 @@
                     <hr />
                     <div class="d-flex justify-content-between">
                       <p class="mb-2">total</p>
-                      <p class="mb-2">100 $</p>
+                      <p class="mb-2">{{ totalPrice }} $</p>
                     </div>
                     <div class="d-flex justify-content-between">
                       <p class="mb-2">Shipping</p>
-                      <p class="mb-2">100 $</p>
+                      <p class="mb-2">{{ shippingCost }} $</p>
                     </div>
                     <hr />
                     <div class="d-flex justify-content-between mb-4">
                       <p class="mb-2">Subtotal</p>
-                      <p class="mb-2">100 $</p>
+                      <p class="mb-2">{{ subTotalPrice }} $</p>
                     </div>
                     <button class="btn bg-primary mt-2 btn-info btn-block btn-lg">Checkout</button>
                   </div>
@@ -80,12 +80,23 @@
 </template>
 <script setup>
 import { useStore } from 'vuex'
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import emptyCart from '../components/emptyCart.vue'
 const store = useStore()
+const shippingCost = ref(store.state.shippingCost)
 
 const cartItems = computed(() => {
   return store.getters.cartItems
+})
+const totalPrice = computed(() => {
+  let price = 0
+  store.getters.cartItems.map((el) => (price += el.quantity * el.price))
+  return price
+})
+const subTotalPrice = computed(() => {
+  let price = shippingCost.value
+  store.getters.cartItems.map((el) => (price += el.quantity * el.price))
+  return price
 })
 
 const deleteItem = (item) => {

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <!-- SideBar -->
-        <div class="sideBar col-3">
+        <div class="sideBar col-3 d-none d-md-block">
           <!-- Accesories Component -->
           <div class="accesories-card">
             <div class="header">ACCESORIES</div>
@@ -41,7 +41,7 @@
           </div>
         </div>
         <!-- Grid Container -->
-        <div id="products-list" class="grid-container col-9">
+        <div id="products-list" class="grid-container col-12 col-md-9">
           <!-- Banner -->
           <div class="banner"><singleBanner :height="imageHeight" /></div>
           <!-- Bar -->
@@ -198,9 +198,6 @@ const getLengthOfProducts = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.banner .banner-container {
-  height: 350px;
-}
 .pagination {
   margin: 20px auto;
 }
@@ -222,12 +219,6 @@ const getLengthOfProducts = computed(() => {
   padding: 16px 20px;
   box-sizing: border-box;
   position: relative;
-
-  @media (max-width: 769px) {
-    & {
-      display: none;
-    }
-  }
 }
 
 .header {
@@ -263,12 +254,6 @@ const getLengthOfProducts = computed(() => {
   border: 1px solid;
   padding: 16px 20px;
   box-sizing: border-box;
-
-  @media (max-width: 769px) {
-    & {
-      display: none !important;
-    }
-  }
 
   li {
     width: 24px;

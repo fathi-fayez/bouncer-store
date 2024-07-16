@@ -1,7 +1,7 @@
 <template>
-  <div class="navBar container">
+  <div class="navBar container-fluid">
     <h1 class="logo">BOUNCER</h1>
-    <ul class="nav-icons mx-auto">
+    <ul class="nav-icons">
       <li>
         <router-link to="/">Home</router-link>
       </li>
@@ -42,29 +42,47 @@ onMounted(async () => {
   text-align: center;
   .logo {
     margin: 50px;
+    color: #ff4858;
+    font-weight: bold;
+    letter-spacing: 5px;
   }
   .nav-icons {
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     list-style: none;
-    @media (max-width: 769px) {
-      flex-direction: column;
-      li {
-        border: 1px solid #888;
-        padding: 10px 20px;
-        width: 150px;
-      }
-    }
+    // background-color: #eee;
 
     li {
-      margin: 0 20px;
-      font-weight: bold;
-
+      & > a:hover {
+        color: #2196f3;
+        background-color: #fafafa;
+      }
       a {
         text-decoration: none;
+        padding: 5px 20px;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: 0.3s;
+
+        @media (max-width: 767px) {
+          padding: 5px;
+          font-size: 14px;
+        }
       }
     }
   }
+}
+.router-link-exact-active {
+  color: rgb(51, 160, 255) !important;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: 0.3s;
+  border-bottom: 2px solid #2196f3;
 }
 </style>

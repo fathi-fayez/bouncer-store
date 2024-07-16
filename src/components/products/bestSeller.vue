@@ -1,7 +1,7 @@
 <template>
   <div class="best-seller-container">
     <div class="navBar container">
-      <h1 class="logo">BEST SELLER</h1>
+      <h1 class="logo text-nowrap">BEST SELLER</h1>
       <ul class="nav-icons mx-auto">
         <li :class="{ active: !selectedCategory }" @click="fetchAllProducts()">All</li>
         <li

@@ -27,25 +27,28 @@ import singleCard from '../banners/singleCard.vue'
 import singleMiddleCard from '../banners/singleMiddleCard.vue'
 </script>
 <style lang="scss" scoped>
-.card-Container {
-  height: 300px;
-  display: flex;
-  align-items: center;
-  background-color: #c1c8ce;
+.container {
+  margin-bottom: 130px;
+  .card-Container {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    background-color: #c1c8ce;
 
-  .content {
-    @media (min-width: 769px) and (max-width: 950px) {
-      margin-left: 20px !important;
+    .content {
+      @media (min-width: 769px) and (max-width: 950px) {
+        margin-left: 20px !important;
+      }
     }
-  }
 
-  .image {
-    flex: 0 0 50%;
-  }
+    .image {
+      flex: 0 0 50%;
+    }
 
-  img {
-    // width: 200px;
-    max-width: 100%;
+    img {
+      // width: 200px;
+      max-width: 100%;
+    }
   }
 }
 </style>

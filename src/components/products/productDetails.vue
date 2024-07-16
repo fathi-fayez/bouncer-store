@@ -78,12 +78,6 @@
                   </select>
                 </div>
                 <div class="d-flex justify-content-between">
-                  <!-- Quantity Selector -->
-                  <div class="d-flex align-items-center">
-                    <button class="btn btn-outline-secondary">-</button>
-                    <h6 class="m-3">5</h6>
-                    <button class="btn btn-outline-secondary">+</button>
-                  </div>
                   <div class="buttons d-flex">
                     <!-- Add To Cart Button -->
                     <button
@@ -199,7 +193,7 @@
         <!-- Right Content -->
         <div class="col-sm-12 col-md-3">
           <h4>BEST SELLER</h4>
-          <singleProduct isGridView="falae" />
+          <singleProduct />
           <singleCard />
         </div>
         <!-- Related Products -->

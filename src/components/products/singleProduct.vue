@@ -37,7 +37,7 @@ const props = defineProps({
   product: {
     type: Object,
     default: {
-      image: '/src/assets/images/31P8qn2ZCFL._AC__1_-removebg-preview.png',
+      image: '/src/assets/images/50061505_575246.png',
       title: 'Product',
       price: 50
     }
