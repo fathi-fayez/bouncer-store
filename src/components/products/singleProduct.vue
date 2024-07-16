@@ -36,10 +36,12 @@ const store = useStore()
 const props = defineProps({
   product: {
     type: Object,
-    default: {
-      image: '/src/assets/images/50061505_575246.png',
-      title: 'Product',
-      price: 50
+    default() {
+      return {
+        image: '/src/assets/images/50061505_575246.png',
+        title: 'Product',
+        price: 50
+      }
     }
   },
   isGridView: {
