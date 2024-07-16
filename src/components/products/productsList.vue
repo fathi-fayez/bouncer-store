@@ -114,7 +114,7 @@
           <div>
             <div class="row">
               <div
-                :class="{ 'col-sm-6 col-md-4': isGridView, 'col-12': !isGridView }"
+                :class="{ 'col-sm-6 col-md-4 mt-3': isGridView, 'col-12': !isGridView }"
                 v-for="product in getProducts"
                 :key="product.id"
               >

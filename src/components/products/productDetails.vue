@@ -9,24 +9,32 @@
             <div class="col-sm-12 col-md-5">
               <div class="row m-4">
                 <div class="col-12 mainImageContainer">
-                  <img class="main-image rounded d-block mx-auto" :src="getProduct.image" alt="" />
+                  <img
+                    class="main-image rounded d-block mx-auto"
+                    :src="getProduct.image"
+                    :alt="getProduct.title"
+                  />
                 </div>
                 <div class="col-12 mt-4 d-flex flex-row">
                   <img
-                    class="details-image rounded d-block mx-auto"
-                    src="../../assets/images/products images/c04297141.png"
+                    class="details-image rounded d-block mx-1"
+                    :src="getProduct.image"
+                    :alt="getProduct.title"
                   />
                   <img
-                    class="details-image rounded d-block mx-auto"
-                    src="../../assets/images/products images/c04297141.png"
+                    class="details-image rounded d-block mx-1"
+                    :src="getProduct.image"
+                    :alt="getProduct.title"
                   />
                   <img
-                    class="details-image rounded d-block mx-auto"
-                    src="../../assets/images/products images/c04297141.png"
+                    class="details-image rounded d-block mx-1"
+                    :src="getProduct.image"
+                    :alt="getProduct.title"
                   />
                   <img
-                    class="details-image rounded d-block mx-auto"
-                    src="../../assets/images/products images/c04297141.png"
+                    class="details-image rounded d-block mx-1"
+                    :src="getProduct.image"
+                    :alt="getProduct.title"
                   />
                 </div>
               </div>
@@ -341,6 +349,6 @@ const addToCart = (product) => {
 }
 .details-image {
   max-width: 100%;
-  width: 25%;
+  width: 23%;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <Header> </Header>
     <currentPageStatus v-if="!$route.meta.PageStatus && !$route.meta.emptyCart" />
     <RouterView />
@@ -14,6 +14,9 @@ import footerComponent from './components/footer.vue'
 </script>
 
 <style lang="scss">
+.app {
+  overflow-x: hidden;
+}
 a {
   color: #888 !important;
 
