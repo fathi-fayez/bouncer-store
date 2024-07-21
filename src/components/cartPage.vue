@@ -40,7 +40,12 @@
                 <!-- Voucher Code Input -->
                 <form class="p-5">
                   <input type="search" name="search" placeholder="Voucher code" />
-                  <input class="bg-primary" type="submit" value="Search" />
+                  <input
+                    @click.prevent="showVoucherCode"
+                    class="bg-primary"
+                    type="submit"
+                    value="Search"
+                  />
                 </form>
               </div>
               <div class="col-sm-12 col-md-6">
@@ -119,6 +124,13 @@ const showSweetAlert = () => {
     text: 'Your  order has been placed.',
     icon: 'success',
     confirmButtonText: 'OK'
+  })
+}
+const showVoucherCode = () => {
+  Swal.fire({
+    title: 'No Voucher Code',
+    text: 'Check you code',
+    icon: 'question'
   })
 }
 </script>
