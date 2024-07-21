@@ -85,8 +85,5 @@ form {
     padding: 10px 15px;
     margin: 50px auto;
   }
-  input[type='submit'] {
-    border-color: transparent;
-  }
 }
 </style>

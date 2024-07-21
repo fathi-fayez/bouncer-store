@@ -3,7 +3,7 @@
     <h1 class="logo">BOUNCER</h1>
     <ul class="nav-icons">
       <li>
-        <router-link to="/">Home</router-link>
+        <router-link to="/">home</router-link>
       </li>
 
       <li v-for="category in categories" :key="category">

@@ -30,4 +30,8 @@ a {
   padding: 10px 20px;
   transition: 0.3s;
 }
+input[type='submit'] {
+  border-color: transparent;
+  color: white;
+}
 </style>

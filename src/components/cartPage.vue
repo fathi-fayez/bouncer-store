@@ -4,31 +4,32 @@
       <div class="row">
         <div class="col-md-12">
           <!-- Container For Items -->
-          <div class="cart-rewiew mb-4">
+          <div class="cart-review mb-4">
             <!-- Header -->
-            <div class="header d-flex align-items-center justify-content-around rounded shadow-sm">
-              <h6>PRODUCT</h6>
-              <h6>NAME</h6>
-              <h6>QUNTITY</h6>
-              <h6>PRICE</h6>
-              <h6>UNIT PRICE</h6>
+            <div
+              class="header d-flex align-items-center justify-content-between rounded shadow-sm p-3 bg-primary-subtle"
+            >
+              <span class="header-col">PRODUCT</span>
+              <span class="header-col">NAME</span>
+              <span class="header-col">QUANTITY</span>
+              <span class="header-col">PRICE</span>
+              <span class="header-col">UNIT PRICE</span>
             </div>
-            <!-- item -->
+            <!-- Items -->
             <div
               v-for="item in cartItems"
               :key="item.id"
-              class="item-control d-flex align-items-center justify-content-around rounded mt-3 px-3 shadow-sm"
+              class="item-control d-flex align-items-center justify-content-between rounded mt-3 px-3 shadow-sm"
             >
-              <img :src="item.image" alt="product.id" />
-              <h6 class="title">{{ item.title.split(' ').slice(0, 3).join(' ') }}</h6>
-              <div class="d-flex align-items-center justify-content-around mx-1">
+              <img :src="item.image" alt="product.id" class="item-col" />
+              <span class="item-col">{{ item.title.split(' ').slice(0, 3).join(' ') }}</span>
+              <div class="item-col d-flex align-items-center justify-content-around mx-1">
                 <button @click="deleteItem(item)" class="btn btn-outline-secondary">-</button>
-                <h6 class="m-3">{{ item.quantity }}</h6>
+                <span class="m-3">{{ item.quantity }}</span>
                 <button @click="addToCart(item)" class="btn btn-outline-secondary">+</button>
               </div>
-              <!--********* Search if there is a peter way to calcuaue th price of item *********-->
-              <h6>{{ item.price }}</h6>
-              <h6>{{ item.quantity * item.price }} $</h6>
+              <span class="item-col">{{ item.price }}</span>
+              <span class="item-col">{{ item.quantity * item.price }} $</span>
             </div>
           </div>
         </div>
@@ -38,21 +39,21 @@
               <div class="col-sm-12 col-md-6">
                 <!-- Voucher Code Input -->
                 <form class="p-5">
-                  <input type="search" name="search" id="" placeholder="Voucher code" />
+                  <input type="search" name="search" placeholder="Voucher code" />
                   <input class="bg-primary" type="submit" value="Search" />
                 </form>
               </div>
               <div class="col-sm-12 col-md-6">
-                <!-- container of details -->
-                <div class="cart-detail card text-while rounded-0 border-0">
+                <!-- Container of Details -->
+                <div class="cart-detail card text-white rounded-0 border-0">
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                       <h5>Cart Details</h5>
-                      <i class="fa-solid fa-cart-shopping"> </i>
+                      <i class="fa-solid fa-cart-shopping"></i>
                     </div>
                     <hr />
                     <div class="d-flex justify-content-between">
-                      <p class="mb-2">total</p>
+                      <p class="mb-2">Total</p>
                       <p class="mb-2">{{ totalPrice }} $</p>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -64,7 +65,12 @@
                       <p class="mb-2">Subtotal</p>
                       <p class="mb-2">{{ subTotalPrice }} $</p>
                     </div>
-                    <button class="btn bg-primary mt-2 btn-info btn-block btn-lg">Checkout</button>
+                    <button
+                      @click="showSweetAlert"
+                      class="btn bg-primary mt-2 btn-info btn-block btn-lg"
+                    >
+                      Checkout
+                    </button>
                   </div>
                 </div>
               </div>
@@ -82,6 +88,7 @@
 import { useStore } from 'vuex'
 import { ref, computed } from 'vue'
 import emptyCart from '../components/emptyCart.vue'
+import Swal from 'sweetalert2'
 const store = useStore()
 const shippingCost = ref(store.state.shippingCost)
 
@@ -105,16 +112,54 @@ const deleteItem = (item) => {
 const addToCart = (item) => {
   store.dispatch('addToCart', item)
 }
+
+const showSweetAlert = () => {
+  Swal.fire({
+    title: 'Done!',
+    text: 'Your  order has been placed.',
+    icon: 'success',
+    confirmButtonText: 'OK'
+  })
+}
 </script>
 
 <style lang="scss" scoped>
-img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
+.container {
+  padding: 20px;
 }
+
 .item-control {
   background-color: #cbcbcb;
+  display: flex;
+  justify-content: space-between;
+}
+.header-col,
+.item-col {
+  flex: 1;
+  text-align: center;
+}
+.title {
+  font-size: 14px;
+  font-weight: bold;
+}
+.cart-review {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.cart-detail {
+  color: black !important;
+  button {
+    color: white;
+  }
+}
+
+img {
+  width: 100px;
+  height: 150px;
+  border-radius: 10px;
+  padding: 5px;
 }
 .payment-box {
   padding-top: 70px;

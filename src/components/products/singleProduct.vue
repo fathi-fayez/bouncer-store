@@ -6,7 +6,7 @@
       <img :src="product.image" alt="product.id" />
     </div>
     <div class="card-body">
-      <h5 class="my-3">{{ product.title.split(' ').slice(0, 3).join(' ') }}</h5>
+      <h5 class="mt-3">{{ product.title.split(' ').slice(0, 3).join(' ') }}</h5>
       <div class="rating">
         <i class="fa-solid fa-star" style="color: #ffc600"></i>
         <i class="fa-solid fa-star" style="color: #ffc600"></i>
@@ -70,7 +70,10 @@ const addToCart = () => {
   }
 }
 .card {
-  height: 400px;
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
   &:hover .overlay-buttons {
     opacity: 1;
   }
@@ -110,7 +113,6 @@ const addToCart = () => {
   }
   .price {
     margin-top: 15px;
-    margin-bottom: 30px;
 
     span.last-price {
       color: #ff4858;
