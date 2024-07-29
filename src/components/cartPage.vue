@@ -38,7 +38,7 @@
             <div class="row">
               <div class="col-sm-12 col-md-6">
                 <!-- Voucher Code Input -->
-                <form class="p-5">
+                <form class="p-5 d-flex justify-content-center justify-content-sm-start">
                   <input type="search" name="search" placeholder="Voucher code" />
                   <input
                     @click.prevent="showVoucherCode"
