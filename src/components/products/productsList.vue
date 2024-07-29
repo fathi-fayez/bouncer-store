@@ -118,14 +118,7 @@
                 v-for="product in getProducts"
                 :key="product.id"
               >
-                <router-link
-                  :to="{
-                    name: 'productDetails',
-                    params: { id: product.id, category: product.category }
-                  }"
-                >
-                  <singleProduct :product="product" :isGridView="isGridView" />
-                </router-link>
+                <singleProduct :product="product" :isGridView="isGridView" />
               </div>
             </div>
           </div>

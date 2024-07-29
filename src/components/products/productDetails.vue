@@ -44,15 +44,21 @@
               <h4 class="product-name">{{ getProduct.title }}</h4>
               <div class="rating d-flex">
                 <!-- Rating Stars -->
-                <div>
-                  <i class="fa-solid fa-star" style="color: #ffc600"></i>
-                  <i class="fa-solid fa-star" style="color: #ffc600"></i>
-                  <i class="fa-solid fa-star" style="color: #ffc600"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
+                <div class="rating">
+                  <i
+                    class="fa-solid fa-star"
+                    style="color: #ffc600"
+                    v-for="i in Math.round(getProduct.rating.rate)"
+                    :key="'filled-' + i"
+                  ></i>
+                  <i
+                    class="fa-solid fa-star"
+                    v-for="i in 5 - Math.round(getProduct.rating.rate)"
+                    :key="'empty-' + i"
+                  ></i>
                 </div>
                 <!-- Reviews -->
-                <span>0 reviews</span>
+                <span class="mx-3">0 reviews</span>
                 <a href="">Submit a review</a>
               </div>
               <!-- Shipping Details -->
@@ -211,16 +217,9 @@
             <div
               v-for="product in relatedProducts"
               :key="product.id"
-              class="col-sm-6 col-md-4 col-lg-3"
+              class="col-sm-6 col-md-4 col-lg-4"
             >
-              <router-link
-                :to="{
-                  name: 'productDetails',
-                  params: { id: product.id, category: product.category }
-                }"
-              >
-                <singleProduct :product="product" />
-              </router-link>
+              <singleProduct :product="product" />
             </div>
           </div>
         </div>
@@ -234,12 +233,13 @@ import { useRoute } from 'vue-router'
 import singleProduct from './singleProduct.vue'
 import singleCard from '../../components/banners/singleCard.vue'
 import { useStore } from 'vuex'
+import { toast } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css'
 
 const route = useRoute()
 const store = useStore()
 const productId = ref(route.params.id)
 const productCategory = ref(route.params.category)
-
 const products = ref([])
 
 // Fetch Products
@@ -277,11 +277,16 @@ const getProduct = computed(() => {
 
 // Get The Related Products
 const relatedProducts = computed(() => {
-  return products.value.filter((product) => product.category == productCategory.value)
+  return products.value.filter(
+    (product) => product.category == productCategory.value && product.id != productId.value
+  )
 })
 
 const addToCart = (product) => {
   store.dispatch('addToCart', product)
+  toast.success('Added To Cart', {
+    autoClose: 500
+  })
 }
 </script>
 <style lang="scss" scoped>

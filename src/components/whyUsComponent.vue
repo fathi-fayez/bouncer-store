@@ -13,7 +13,7 @@
       </div>
       <!-- Feature box -->
       <div class="feature-box col-sm-12 col-md-4">
-        <font-awesome-icon class="icon" :icon="['fas', 'truck-fast']" style="color: #ff6875" />
+        <font-awesome-icon class="icon" :icon="['fas', 'shop']" style="color: #ff6875" />
         <h6>FREE SHIPPING</h6>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor minim
@@ -23,7 +23,7 @@
       </div>
       <!-- Feature box -->
       <div class="feature-box col-sm-12 col-md-4">
-        <font-awesome-icon class="icon" :icon="['fas', 'truck-fast']" style="color: #ff6875" />
+        <font-awesome-icon class="icon" :icon="['fas', 'cart-shopping']" style="color: #ff6875" />
         <h6>FREE SHIPPING</h6>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor minim

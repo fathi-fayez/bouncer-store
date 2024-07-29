@@ -59,12 +59,13 @@
 <script setup></script>
 <style lang="scss" scoped>
 .news-container {
-  margin-bottom: 150px;
+  margin-bottom: 120px;
 
   .news-box {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin-bottom: 20px;
 
     img {
       width: 140px;

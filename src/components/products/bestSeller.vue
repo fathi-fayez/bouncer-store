@@ -21,14 +21,7 @@
           :key="product.id"
           class="col-sm-6 col-md-4 col-lg-3 mt-3"
         >
-          <router-link
-            :to="{
-              name: 'productDetails',
-              params: { id: product.id, category: product.category }
-            }"
-          >
-            <singleProduct :product="product" />
-          </router-link>
+          <singleProduct :product="product" />
         </div>
       </div>
     </div>
@@ -116,18 +109,49 @@ const fetchAllProducts = async () => {
 .best-seller-container {
   padding-bottom: 150px;
 
-  li {
-    cursor: pointer;
-    color: #888;
-    padding: 10px;
+  .nav-icons {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    // background-color: #eee;
 
-    &:hover {
-      color: rgb(51, 160, 255);
-    }
-    &.active {
-      color: rgb(51, 160, 255);
+    li {
+      cursor: pointer;
+      color: #888;
+      padding: 10px;
+
+      &:hover {
+        color: rgb(51, 160, 255);
+      }
+      &.active {
+        color: rgb(51, 160, 255);
+      }
+
+      & > a:hover {
+        color: #2196f3;
+        background-color: #fafafa;
+      }
+      a {
+        text-decoration: none;
+        padding: 5px 20px;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: 0.3s;
+
+        @media (max-width: 767px) {
+          padding: 5px;
+          font-size: 14px;
+        }
+      }
     }
   }
+
   .loadMoreBtn {
     background-color: rgb(51, 160, 255);
     color: white;

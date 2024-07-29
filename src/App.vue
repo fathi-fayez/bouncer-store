@@ -7,10 +7,18 @@
   </div>
 </template>
 <script setup>
+import { onMounted } from 'vue'
+import { useStore } from 'vuex'
 import Header from './components/Header.vue'
-
 import currentPageStatus from './components/currentPageStatus.vue'
 import footerComponent from './components/footer.vue'
+
+const store = useStore()
+
+// Fetch products on component mount
+onMounted(() => {
+  store.dispatch('fetchProducts')
+})
 </script>
 
 <style lang="scss">
@@ -19,17 +27,9 @@ import footerComponent from './components/footer.vue'
 }
 a {
   color: #888 !important;
+  text-decoration: none;
+}
 
-  &:hover {
-    color: rgb(51, 160, 255) !important;
-  }
-}
-.router-link-exact-active {
-  color: rgb(51, 160, 255) !important;
-  font-weight: bold;
-  padding: 10px 20px;
-  transition: 0.3s;
-}
 input[type='submit'] {
   border-color: transparent;
   color: white;

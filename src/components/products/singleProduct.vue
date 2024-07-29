@@ -1,38 +1,52 @@
 <template>
   <!-- product card -->
-
   <div :class="{ 'product-list': !isGridView }" class="card border-1 shadow-sm text-center">
     <div class="image-container">
-      <img :src="product.image" alt="product.id" />
+      <img :src="product.image" :alt="product.title" />
     </div>
-    <div class="card-body">
-      <h5 class="mt-3">{{ product.title.split(' ').slice(0, 3).join(' ') }}</h5>
-      <div class="rating">
-        <i class="fa-solid fa-star" style="color: #ffc600"></i>
-        <i class="fa-solid fa-star" style="color: #ffc600"></i>
-        <i class="fa-solid fa-star" style="color: #ffc600"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
+    <router-link
+      :to="{ name: 'productDetails', params: { id: product.id, category: product.category } }"
+    >
+      <div class="card-body">
+        <h5 class="mt-3">{{ product.title.split(' ').slice(0, 3).join(' ') }}</h5>
+
+        <div class="rating">
+          <i
+            class="fa-solid fa-star"
+            style="color: #ffc600"
+            v-for="i in Math.round(product.rating.rate)"
+            :key="i"
+          ></i>
+          <i
+            class="fa-solid fa-star"
+            v-for="i in 5 - Math.round(product.rating.rate)"
+            :key="'empty' + i"
+          ></i>
+        </div>
+        <div class="price">
+          <span class="last-price">${{ product.price }}</span> <span class="old-price">$599</span>
+        </div>
       </div>
-      <div class="price">
-        <span class="last-price">${{ product.price }}</span> <span class="old-price">$599</span>
-      </div>
-    </div>
+    </router-link>
     <div class="overlay-buttons">
-      <button class="add-to-favorite"><i class="fa-solid fa-heart"></i></button>
-      <button class="add-to-cart" @click="addToCart()">
+      <button class="add-to-favorite" aria-label="Add to favorite">
+        <i class="fa-solid fa-heart"></i>
+      </button>
+      <button class="add-to-cart" @click="addToCart()" aria-label="Add to cart">
         <i class="fa-solid fa-cart-shopping"> </i>
       </button>
     </div>
   </div>
 </template>
+
 <script setup>
 import { useStore } from 'vuex'
+import { toast } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css'
 
 // Access the Vuex store
 const store = useStore()
 
-// Define component props
 const props = defineProps({
   product: {
     type: Object,
@@ -41,7 +55,10 @@ const props = defineProps({
         image:
           'https://st4.depositphotos.com/13324256/24475/i/450/depositphotos_244751462-stock-photo-top-view-product-lettering-made.jpg',
         title: 'Product',
-        price: 50
+        price: 50,
+        rating: {
+          rate: 4.5
+        }
       }
     }
   },
@@ -54,6 +71,9 @@ const props = defineProps({
 // Method to add product to the cart
 const addToCart = () => {
   store.dispatch('addToCart', props.product)
+  toast.success('Added To Cart', {
+    autoClose: 500
+  })
 }
 </script>
 
@@ -69,25 +89,35 @@ const addToCart = () => {
     flex-basis: 50%;
   }
 }
+
 .card {
+  a {
+    text-decoration: none;
+  }
   &:hover {
     transform: scale(1.05);
     transition: 0.3s;
   }
+
   &:hover .overlay-buttons {
     opacity: 1;
   }
+
   .image-container {
     height: 200px;
+
     img {
       margin: auto;
       max-width: 100%;
       max-height: 100%;
     }
   }
+
   .card-body {
     position: relative;
+    z-index: 999 !important;
   }
+
   .overlay-buttons {
     position: absolute;
     top: 0;
@@ -104,13 +134,14 @@ const addToCart = () => {
     .add-to-favorite,
     .add-to-cart {
       border-radius: 50%;
-      padding: 10px;
-      margin: 6px;
+      padding: 12px;
+      margin: 4px;
       color: rgb(51, 160, 255);
-      border-color: rgba(151, 151, 151, 0.6);
-      margin-bottom: 100px;
+      border: none;
+      transform: translateY(-50%);
     }
   }
+
   .price {
     margin-top: 15px;
 

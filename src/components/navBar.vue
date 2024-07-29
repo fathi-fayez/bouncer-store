@@ -37,7 +37,7 @@ onMounted(async () => {
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .navBar {
   text-align: center;
   .logo {
@@ -56,7 +56,6 @@ onMounted(async () => {
 
     li {
       & > a:hover {
-        color: #2196f3;
         background-color: #fafafa;
       }
       a {
